@@ -3,12 +3,12 @@ pipeline{
     stages{
         stage("checkout"){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'git@github.com:pradyumna-scstechsol/Calculator-Ci.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: 'git@github.com:pradyumna-scstechsol/calculator.git']]])
             }
         }
         stage("build"){
             steps{
-                git branch: '*/main', url: 'git@github.com:pradyumna-scstechsol/Calculator-Ci.git'
+                git branch: 'main', url: 'git@github.com:pradyumna-scstechsol/calculator.git'
                 sh 'python calculator.py'
             }
         } 
